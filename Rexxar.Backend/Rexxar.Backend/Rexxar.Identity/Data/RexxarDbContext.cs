@@ -9,7 +9,7 @@ namespace Rexxar.Identity.Data
 {
     public class RexxarDbContext : IdentityDbContext<RexxarUser, RexxarRole, Guid>
     {
-        public RexxarDbContext(DbContextOptions options) : base(options)
+        public RexxarDbContext(DbContextOptions<RexxarDbContext> options) : base(options)
         {
         }
     }
