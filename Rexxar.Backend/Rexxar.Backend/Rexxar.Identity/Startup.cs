@@ -13,6 +13,9 @@ using Rexxar.Identity.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Identity;
 using IdentityServer4.Services;
+using System.Threading.Tasks;
+using IdentityServer4.EntityFramework.DbContexts;
+using IdentityServer4.EntityFramework.Mappers;
 
 namespace Rexxar.Identity
 {
@@ -115,6 +118,42 @@ namespace Rexxar.Identity
             app.UseCors("all");
 
             app.UseIdentityServer();
+
+            MigrateDatabase(app).Wait();
         }
+
+        public static async Task MigrateDatabase(IApplicationBuilder app)
+        {
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                // 迁移DemoDbContext上下文
+                scope.ServiceProvider.GetRequiredService<RexxarDbContext>().Database.Migrate();
+                // 迁移PersistedGrantDbContext上下文
+                scope.ServiceProvider.GetRequiredService<PersistedGrantDbContext>().Database.Migrate();
+                var configurationDbContext = scope.ServiceProvider.GetRequiredService<ConfigurationDbContext>();
+                // 迁移ConfigurationDbContext上下文
+                configurationDbContext.Database.Migrate();
+
+                // 注入用户管理 增加用户
+                var userManager = scope.ServiceProvider.GetRequiredService<UserManager<RexxarUser>>();
+                foreach (var user in SeedData.Users())
+                {
+                    if (userManager.FindByNameAsync(user.UserName).Result == null)
+                    {
+                        await userManager.CreateAsync(user, "123456");
+                    }
+                }
+
+                // 增加ApiResources IdentityResources Clients
+                if (!configurationDbContext.ApiResources.Any())
+                    configurationDbContext.ApiResources.AddRange(Config.GetApiResouces().Select(r => r.ToEntity()));
+                if (!configurationDbContext.IdentityResources.Any())
+                    configurationDbContext.IdentityResources.AddRange(Config.GetIdentityResources().Select(r => r.ToEntity()));
+                if (!configurationDbContext.Clients.Any())
+                    configurationDbContext.Clients.AddRange(Config.GetClients().Select(r => r.ToEntity()));
+                await configurationDbContext.SaveChangesAsync();
+            }
+        }
+
     }
 }
