@@ -77,7 +77,7 @@ namespace Rexxar.Chat
 
         private async Task RefreshUsersAsync()
         {
-            var users = onlineUsers.Get().Where(r => r.Id != Context.User.GetUser().Id).ToList();
+            var users = onlineUsers.Get().ToList();
             // 发送给所有的在线客户端，通知刷新在线用户
             await Clients.All.SendAsync("Refresh", users);
         }
