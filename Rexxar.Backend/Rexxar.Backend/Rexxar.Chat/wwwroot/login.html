@@ -35,7 +35,7 @@
                 }, function (result) {
                     if (result && result.access_token) {
                         sessionStorage['token'] = result.access_token;
-                        window.location = "http://localhost:5001/chat.html";
+                        window.location = "/chat.html";
                     }
                 }, 'json');
             });
