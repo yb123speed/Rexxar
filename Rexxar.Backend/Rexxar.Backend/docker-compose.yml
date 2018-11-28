@@ -1,0 +1,19 @@
+version: '3.4'
+
+services:
+
+  rexxar.identity:
+    build: ./Rexxar.Identity/
+    ports:
+      - "5000:80"
+    external_links:
+      - mypostgresql
+
+  rexxar.chatapi:
+    build: ./Rexxar.Chat/
+    ports: 
+      - "5001:80"
+    depends_on:
+      - rexxar.identity
+    external_links:
+      - myrabbitmq

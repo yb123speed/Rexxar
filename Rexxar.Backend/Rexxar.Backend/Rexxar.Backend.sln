@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.28307.106
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rexxar.Identity", "Rexxar.Identity\Rexxar.Identity.csproj", "{1EABD1AC-27C0-48D2-9392-BB0015096784}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rexxar.Chat", "Rexxar.Chat\Rexxar.Chat.csproj", "{0A720126-04BB-4D9D-A5A9-FDA722725702}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rexxar.Chat", "Rexxar.Chat\Rexxar.Chat.csproj", "{0A720126-04BB-4D9D-A5A9-FDA722725702}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{FEA0C318-FFED-4D39-8781-265718CA43DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{0A720126-04BB-4D9D-A5A9-FDA722725702}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A720126-04BB-4D9D-A5A9-FDA722725702}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A720126-04BB-4D9D-A5A9-FDA722725702}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEA0C318-FFED-4D39-8781-265718CA43DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEA0C318-FFED-4D39-8781-265718CA43DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEA0C318-FFED-4D39-8781-265718CA43DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEA0C318-FFED-4D39-8781-265718CA43DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
