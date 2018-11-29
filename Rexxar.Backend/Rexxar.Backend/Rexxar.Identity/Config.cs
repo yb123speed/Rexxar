@@ -16,35 +16,35 @@ namespace Rexxar
         {
             return new List<Client>
             {
-                new Client()
-                {
-                    ClientId="mvc",     //客户端Id
-                    ClientName="MVC Client",
-                    ClientUri ="http://localhost:5001",
-                    LogoUri = "http://pic.qiantucdn.com/58pic/19/02/97/03m58PICDxF_1024.jpg",
+                //new Client()
+                //{
+                //    ClientId="mvc",     //客户端Id
+                //    ClientName="MVC Client",
+                //    ClientUri ="http://localhost:5001",
+                //    LogoUri = "http://pic.qiantucdn.com/58pic/19/02/97/03m58PICDxF_1024.jpg",
 
-                    //AllowedGrantTypes = GrantTypes.Implicit,  //OAuth2.0 简单模式模式
+                //    //AllowedGrantTypes = GrantTypes.Implicit,  //OAuth2.0 简单模式模式
 
-                    AllowedGrantTypes = GrantTypes.HybridAndClientCredentials,
+                //    AllowedGrantTypes = GrantTypes.HybridAndClientCredentials,
 
-                    ClientSecrets =new List<Secret>  //客户端所需密钥
-                    {
-                        new Secret("secret".Sha256())
-                    },
+                //    ClientSecrets =new List<Secret>  //客户端所需密钥
+                //    {
+                //        new Secret("secret".Sha256())
+                //    },
 
-                    RequireConsent=true,
+                //    RequireConsent=true,
 
-                    RedirectUris={ "http://localhost:5001/signin-oidc"},
-                    PostLogoutRedirectUris ={ "http://localhost:5001/signout-callback-oidc"},
+                //    RedirectUris={ "http://localhost:5001/signin-oidc"},
+                //    PostLogoutRedirectUris ={ "http://localhost:5001/signout-callback-oidc"},
 
-                    AllowedScopes = {
-                        IdentityServerConstants.StandardScopes.Profile,
-                        IdentityServerConstants.StandardScopes.OpenId,
-                        IdentityServerConstants.StandardScopes.Email,
-                    }, //可访问的Resource
-                    AllowOfflineAccess = true,
-                    AllowAccessTokensViaBrowser=true
-                },
+                //    AllowedScopes = {
+                //        IdentityServerConstants.StandardScopes.Profile,
+                //        IdentityServerConstants.StandardScopes.OpenId,
+                //        IdentityServerConstants.StandardScopes.Email,
+                //    }, //可访问的Resource
+                //    AllowOfflineAccess = true,
+                //    AllowAccessTokensViaBrowser=true
+                //},
                 new Client()
                 {
                     //客户端Id
