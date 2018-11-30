@@ -7,9 +7,12 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 
-namespace Rexxar.Xamarin.Droid
+namespace Rexxar.Xamarin.Droid.Activities
 {
-    [Activity(Label = "Rexxar.Xamarin", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Rexxar.Xamarin",
+              Icon = "@mipmap/icon",
+              Theme = "@style/MainTheme",
+              ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
