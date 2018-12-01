@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="Rexxar.Xamarin.Views.LoginPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry x:Name="username" Placeholder="请输入用户名" />
+            <Entry x:Name="password" x:DataType="Password" Placeholder="请输入密码" />
+            <Button x:Name="loginBtn" Clicked="LoginBtn_Clicked" Style="width:100px;height:100px">登录</Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
