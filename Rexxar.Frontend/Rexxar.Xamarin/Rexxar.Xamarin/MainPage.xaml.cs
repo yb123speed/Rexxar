@@ -17,7 +17,7 @@ namespace Rexxar.Xamarin
 
         async void Handle_Clicked(object sender, System.EventArgs e)
         {
-            await Navigation.PushAsync(new LoginPage());
+            await Navigation.PushModalAsync(new LoginPage());
         }
     }
 }
